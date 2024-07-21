@@ -1,0 +1,125 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #faf0d1;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    background-color: #003366;
+    overflow: hidden;
+    color: white;
+    padding: 10px 0;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.navbar ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+.form-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff8e1;
+    border: 1px solid #003366;
+    border-radius: 10px;
+}
+
+.form-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #003366;
+}
+
+.form-container p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #003366;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 10px;
+    background-color: #003366;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0055a5;
+}
+
+
+/* Footer styles */
+footer {
+    background-color:  rgb(7, 7, 77); /* Dark background color */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.social-icons {
+    list-style-type: none;
+    padding: 0;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+}
+
+/* Social media icons background images */
+.social-icon.facebook {
+    background-image: url('{% static "facebook.png" %}');
+}
+
+.social-icon.twitter {
+    background-image: url('{% static "twitter.png" %}');
+}
+
+.social-icon.instagram {
+    background-image: url('{% static "instagram.png" %}');
+}

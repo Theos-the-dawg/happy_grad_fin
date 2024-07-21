@@ -1,0 +1,184 @@
+/* login.css */
+
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Light gray background */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation styles */
+.nav-links {
+    background-color: rgb(7, 7, 77); /* Dark background color */
+    overflow: hidden;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    float: left;
+}
+
+.nav-links li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-links li a:hover {
+    background-color: #111; /* Darken background color on hover */
+}
+
+/* Container styles */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Logo styles */
+.logo {
+    float: left;
+    padding: 15px 0;
+}
+
+.logo a {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+/* Login container styles */
+.login-container {
+    background-color: #fff;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-container form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.login-container .form-group {
+    margin-bottom: 15px;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.login-container input[type="email"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-container button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 1rem;
+    background-color: rgb(7, 7, 77);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: rgb(rgb(89, 0, 255), rgb(0, 102, 128), blue); /* Darken background color on hover */
+}
+
+.login-container .messages {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8d7da; /* Bootstrap's error alert color */
+    border: 1px solid #f5c6cb; /* Bootstrap's error alert border color */
+    border-radius: 4px;
+}
+
+.login-container .messages p {
+    margin: 0;
+    color: #721c24; /* Bootstrap's error alert text color */
+}
+
+.login-container p {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-container p a {
+    color: #007bff; /* Bootstrap's primary link color */
+    text-decoration: none;
+}
+
+.login-container p a:hover {
+    text-decoration: underline;
+}
+
+/* Footer styles */
+footer {
+    background-color: rgb(7, 7, 77); /* Dark background color */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.social-icons {
+    list-style-type: none;
+    padding: 0;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+}
+
+/* Social media icons background images */
+.social-icon.facebook {
+    background-image: url('{% static "facebook.png" %}');
+}
+
+.social-icon.twitter {
+    background-image: url('{% static "twitter.png" %}');
+}
+
+.social-icon.instagram {
+    background-image: url('{% static "instagram.png" %}');
+}

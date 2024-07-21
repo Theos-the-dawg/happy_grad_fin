@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Create Tutor Profile</title>
+   <link rel="stylesheet" type="text/css" href="{% static 'css/create_tutor.css' %}">
+   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Create Tutor Profile</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ tutor_form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

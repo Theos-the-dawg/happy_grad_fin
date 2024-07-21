@@ -1,0 +1,133 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #faf0d1;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #003366;
+    color: white;
+    padding: 10px 0;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+header .logo p {
+    font-size: 14px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+main h1 {
+    font-size: 36px;
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+.services {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.service-item {
+    background-color: #fff8e1;
+    border: 1px solid #003366;
+    border-radius: 10px;
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.service-item h2 {
+    font-size: 24px;
+    color: #003366;
+    margin: 15px 0;
+}
+
+.service-item p {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333; /* Dark background color */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.social-icons {
+    list-style-type: none;
+    padding: 0;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+}
+
+/* Social media icons background images */
+.social-icon.facebook {
+    background-image: url('{% static "facebook.png" %}');
+}
+
+.social-icon.twitter {
+    background-image: url('{% static "twitter.png" %}');
+}
+
+.social-icon.instagram {
+    background-image: url('{% static "instagram.png" %}');
+}

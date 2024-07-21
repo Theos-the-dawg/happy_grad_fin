@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <a href="{% url 'home' %}"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                {% if request.user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+    {% else %}
+        <li><a href="{% url 'login' %}">Login</a></li>
+    {% endif %}
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'documents' %}">Documents</a></li>
+                <li><a href="{% url 'useful_links'%}"> Useful Links</a></li>
+                <li><a href="{% url 'join_the_team'%}">Join the team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Welcome to Happy Grad</h1>
+            <p>Your go-to place for amazing services.</p>
+            <a href="#" class="btn">Get Started</a>
+        </div>
+        {% if request.user.is_authenticated %}
+    <p>Welcome, {{ request.user.username }}!</p>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+{% else %}
+    <p>You are not logged in.</p>
+    <a href="{% url 'login' %}">Login</a>
+{% endif %}
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <div class="container">
+            <section class="intro">
+                <h2>services Us</h2>
+                <p>We offer a wide range of services to meet all your needs.</p>
+            </section>
+            <section class="services">
+                <h2>Our Services</h2>
+                <div class="service">
+                    <h3>Service 1</h3>
+                    <p>Linking young professionals and students with expert experience.</p>
+                </div>
+                <div class="service">
+                    <h3>Service 2</h3>
+                    <p>Description of Service 2.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><img src="{% static 'images/icon-instagram.png' %}" alt="Instagram"></a>
+                <a href="#"><img src="{% static 'images/icon-facebook.png' %}" alt="Facebook"></a>
+                <a href="#"><img src="{% static 'images/icon-twitter.png' %}" alt="twitter"></a>
+            </div>
+            <p>&copy; 2024 Happy Grad. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

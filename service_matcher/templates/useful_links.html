@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useful links</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/useful_links.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<nav>
+    <div class="container">
+        <div class="logo">
+            <a href="{% url 'home' %}"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            {% if request.user.is_authenticated %}
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+{% else %}
+    <li><a href="{% url 'login' %}">Login</a></li>
+{% endif %}
+            <li><a href="{% url 'services' %}">services</a></li>
+            <li><a href="{% url 'documents' %}">Request</a></li>
+            <li><a href="{% url 'useful_links' %}">Useful Links</a></li>
+            <li><a href="{% url 'join_the_team'%}">Join the team</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="slides">
+    <div class="slide">
+        <div class="column">
+            <h2>academica</h2>
+            <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <h2>Business/Young Professional</h2>
+            <ul>
+                <li><a href="#">Link 4</a></li>
+                <li><a href="#">Link 5</a></li>
+                <li><a href="#">Link 6</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+ <!-- Footer section -->
+ <footer>
+    <div class="container">
+        <ul class="social-icons">
+            <li><a href="#" class="social-icon facebook"></a></li>
+            <li><a href="#" class="social-icon twitter"></a></li>
+            <li><a href="#" class="social-icon instagram"></a></li>
+        </ul>
+    </div>
+</footer>
+<body>
+    
