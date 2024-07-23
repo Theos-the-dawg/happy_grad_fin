@@ -71,7 +71,7 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
 
 
 class Student(models.Model):
-      
+        #user = models.OneToOneField(MyUser, on_delete=models.CASCADE)
         title = models.SmallIntegerField(choices=TITLE_CHOICES)
         first_name = models.OneToOneField(MyUser,related_name='student_first_name', db_column='student_first_name',on_delete=models.CASCADE)
         last_name = models.OneToOneField(MyUser, related_name='student_last_name', db_column='student_last_name',on_delete=models.CASCADE)
@@ -87,7 +87,7 @@ class Student(models.Model):
         
 
 class Tutor(models.Model):
-        
+        #user = models.OneToOneField(MyUser, on_delete=models.CASCADE)
         title = models.SmallIntegerField(choices=TITLE_CHOICES)
         first_name = models.OneToOneField(MyUser,related_name='tutor_first_name', db_column='tutor_first_name',on_delete=models.CASCADE)
         last_name = models.OneToOneField(MyUser,related_name='tutor_last_name', db_column='tutor_last_name',on_delete=models.CASCADE)
@@ -102,8 +102,8 @@ class Tutor(models.Model):
               return   {f"{self.title} {self.first_name}{self.last_name}{self.field}"}
 class Document(models.Model):
      
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    tutor = models.ForeignKey(Tutor, blank=True, null=True, on_delete=models.SET_NULL)
+    student = models.OneToOneField(Student, on_delete=models.CASCADE)
+    tutor = models.OneToOneField(Tutor, blank=True, null=True, on_delete=models.SET_NULL)
     service_type = models.SmallIntegerField(choices=SERVICE_TYPE)
     field = models.CharField(max_length=50)
     due_date = models.DateTimeField(default=timezone.now() + timedelta(weeks=1))
@@ -112,5 +112,5 @@ class Document(models.Model):
     description = models.TextField()
     created = models.DateTimeField(default=timezone.now())
 
-    # def __str__(self):
-    #     return {f"{self.student}"}
+    def __str__(self):
+        return {f"{self.student.first_name}"}

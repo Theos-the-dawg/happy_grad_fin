@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib import messages
 from .forms import UserRegistrationForm, StudentRegistrationForm, TutorRegistrationForm
-from .models import Student, Tutor
+from .models import Student, Tutor, MyUser
 
 
 def home(request):
@@ -109,28 +109,35 @@ def useful_links(request):
 
 def join_the_team(request):
     return render(request, 'join_the_team.html')
-@login_required  #alt for currrent logic
+#@login_required  #alt for currrent logic
 def documents(request):
     form = DocumentForm(request.POST or None, request.FILES or None)
 
     if request.method == 'POST':
-        if not request.user.is_authenticated:
-            messages.error(request, 'You need to be logged in to submit a request.')
-            return redirect('login')
-
-        # if not hasattr(request.user, 'student'):
-        #     messages.error(request, 'Only students can submit a document request.')
-        #     return redirect('home')
+       
         print(form)
     if form.is_valid():
         document = form.save(commit=False)
-        student = Student.objects.get(user=request.user)  # Assuming there's a relationship between User and Student
+        
+        student = Student.objects.get(last_name_id=request.user) 
         document.student = student
-       
-
-        document.save()
-        messages.success(request, 'Your request has been submitted.')
-        return redirect('home')
+        if request.user.is_authenticated:
+         
+          document.save()
+          messages.success(request, 'Your request has been submitted.')
+          return redirect('home')
+        else:
+         messages.error(request, 'You need to be logged in for submission')
+         return redirect('login')
 
     return render(request, 'documents.html', {'form': form})
     
+def admin_profiles_display(request):
+
+        if request.user.is_authenticated:
+            students = Student.objects.all()
+            tutors = Tutor.objects.all()
+
+        
+
+
