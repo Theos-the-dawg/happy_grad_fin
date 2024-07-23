@@ -59,7 +59,6 @@ def logout_view(request):
     logout(request)
     return redirect('home')   
     
-"""works just needs a bit of cleaning and exception handling """
 def create_Student(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
@@ -80,7 +79,7 @@ def create_Student(request):
         student_form = StudentRegistrationForm()
     return render(request, 'create_student.html', {'user_form': user_form, 'student_form': student_form})
 
-"""works just needs a bit of cleaning and exception handling """
+
 def create_Tutor(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
