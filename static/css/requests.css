@@ -118,7 +118,10 @@ footer {
     bottom: 0;
     width: 100%;
 }
-
+footer .social-links a img {
+    height: 30px;
+    margin: 0 10px;
+    }
 footer .container {
     max-width: 1200px;
     margin: 0 auto;

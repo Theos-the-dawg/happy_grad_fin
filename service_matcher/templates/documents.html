@@ -29,41 +29,25 @@
             <h1>Request</h1>
             <form method="post" action="{% url 'documents' %}" enctype="multipart/form-data">
                 {% csrf_token %}
-                
                 {{ form.as_p }}
-               <!---- <div class="form-group"><form method="post" enctype="multipart/form-data">
-                   
-                <div class="form-group">
-                    <label for="service_type">Service Type</label>
-                    <select id="service_type" name="service_type">
-                        <option value="0">Education</option>
-                        <option value="1">Tutorial</option>
-                        <option value="2">Research Ass.</option>
-                        <option value="3">Young Pro</option>
-                        <option value="4">Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="field">Subject/Field</label>
-                    <input type="text" id="field" name="field">
-                </div>
-                <div class="form-group">
-                    <label for="due_date">Due Date</label>
-                    <input type="text" id="due_date" name="due_date" placeholder="DD/MM/YY">
-                </div>
-                <div class="form-group">
-                    <label for="description">Description of requirement</label>
-                    <textarea id="description" name="description"></textarea>
-                </div>
-                <div class="form-group">
-                <label for="file">Choose a file:</label>
-                <input type="file" id="file" name="file">
-                </div>-->
                 <button type="submit">Submit</button>
             </form>
         </div>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+            {% endif %}
         <footer>
-            <p>Become a <strong>Happy Grad</strong> today</p>
+            <div class="container">
+                <div class="social-links">
+                    <a href="#"><img src="{% static 'images/icon-instagram.png' %}" alt="Instagram"></a>
+                    <a href="#"><img src="{% static 'images/icon-facebook.png' %}" alt="Facebook"></a>
+                    <a href="#"><img src="{% static 'images/icon-twitter.png' %}" alt="twitter"></a>
+                </div>
+                <p>&copy; 2024 Happy Grad. All rights reserved.</p>
+            </div>
         </footer>
     </div>
 </body>
