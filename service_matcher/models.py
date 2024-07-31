@@ -102,8 +102,8 @@ class Tutor(models.Model):
               return   {f"{self.title} {self.first_name}{self.last_name}{self.field}"}
 class Document(models.Model):
      
-    student = models.OneToOneField(Student, on_delete=models.CASCADE)
-    tutor = models.OneToOneField(Tutor, blank=True, null=True, on_delete=models.SET_NULL)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    tutor = models.ForeignKey(Tutor, blank=True, null=True, on_delete=models.SET_NULL)
     service_type = models.SmallIntegerField(choices=SERVICE_TYPE)
     field = models.CharField(max_length=50)
     due_date = models.DateTimeField(default=timezone.now() + timedelta(weeks=1))
@@ -111,6 +111,6 @@ class Document(models.Model):
     file = models.FileField(upload_to='Documents/',null=True)
     description = models.TextField()
     created = models.DateTimeField(default=timezone.now())
-
+#change the __str__ it's causing an error
     def __str__(self):
         return {f"{self.student.first_name}"}

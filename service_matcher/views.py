@@ -81,9 +81,11 @@ def create_Student(request):
 
 
 def create_Tutor(request):
+
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         tutor_form = TutorRegistrationForm(request.POST)
+
         if user_form.is_valid() and tutor_form.is_valid():
             user = user_form.save(commit=False)
             user.set_password(user_form.cleaned_data['password'])
@@ -94,6 +96,7 @@ def create_Tutor(request):
             tutor.save()
             authenticated_user = authenticate(email=user.email, password=user_form.cleaned_data['password'])
             auth_login(request, authenticated_user)
+            
             return redirect('services')
     else:
         user_form = UserRegistrationForm()
@@ -113,9 +116,8 @@ def documents(request):
     form = DocumentForm(request.POST or None, request.FILES or None)
 
     if request.method == 'POST':
-       
-        print(form)
-    if form.is_valid():
+
+     if form.is_valid():
         document = form.save(commit=False)
         
         student = Student.objects.get(last_name_id=request.user) 
@@ -133,10 +135,14 @@ def documents(request):
     
 def admin_profiles_display(request):
 
-        if request.user.is_authenticated:
+    if request.user.is_authenticated:
             students = Student.objects.all()
             tutors = Tutor.objects.all()
+    context = {
+        'students':students
+    }
 
+    return render(request, context)
         
 
 
