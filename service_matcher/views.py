@@ -132,17 +132,7 @@ def documents(request):
          return redirect('login')
 
     return render(request, 'documents.html', {'form': form})
-    
-def admin_profiles_display(request):
 
-    if request.user.is_authenticated:
-            students = Student.objects.all()
-            tutors = Tutor.objects.all()
-    context = {
-        'students':students
-    }
+def index_view(request):
 
-    return render(request, context)
-        
-
-
+    return render(request,'index.html')

@@ -1,8 +1,9 @@
 from django.urls import path, include
 from .views import (home,login_view,logout_view,services,create_Student,
-                     create_Tutor,useful_links,documents,join_the_team)
+                     create_Tutor,useful_links,documents,join_the_team, index_view)
 
 urlpatterns = [
+     path('index/',index_view,name='index'),
      path('home/',home,name='home'),#home
      path('login/',login_view,name='login'),#login
      path('logout/', logout_view, name='logout'),#logout
