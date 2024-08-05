@@ -9,20 +9,27 @@
     
 </head>
 <body>
-    <ul class="nav-links">
-        <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'login' %}">Login</a></li>
-        <li><a href="{% url 'services' %}">Services</a></li>
-        <li><a href="{% url 'documents'%}">Request</a></li>
-        <li><a href="{% url 'useful_links'%}">Links</a></li>
-        <li><a href="{% url 'join_the_team'%}">Join the team</a></li>
-    </ul>
-
-    <nav>
+     <!-- Navigation Bar -->
+     <nav>
         <div class="container">
-            <div class="logo"> 
+            <div class="logo">
+                <a href="{% url 'home' %}"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                {% if request.user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+    {% else %}
+        <li><a href="{% url 'login' %}">Login</a></li>
+    {% endif %}
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'documents' %}">Request</a></li>
+                <li><a href="{% url 'useful_links'%}"> Useful Links</a></li>
+                <li><a href="{% url 'join_the_team'%}">Join the team</a></li>
+            </ul>
         </div>
     </nav>
+   
     <div class="login-container">
 
         <h1> Login</h1>
@@ -50,11 +57,12 @@
      <!-- Footer section -->
      <footer>
         <div class="container">
-            <ul class="social-icons">
-                <li><a href="#" class="social-icon facebook"></a></li>
-                <li><a href="#" class="social-icon twitter"></a></li>
-                <li><a href="#" class="social-icon instagram"></a></li>
-            </ul>
+            <div class="social-links">
+                <a href="#"><img src="{% static 'images/icon-instagram.png' %}" alt="Instagram"></a>
+                <a href="#"><img src="{% static 'images/icon-facebook.png' %}" alt="Facebook"></a>
+                <a href="#"><img src="{% static 'images/icon-twitter.png' %}" alt="twitter"></a>
+            </div>
+            <p>&copy; 2024 Happy Grad. All rights reserved.</p>
         </div>
     </footer>
 </body>

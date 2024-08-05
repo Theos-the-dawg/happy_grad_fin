@@ -39,7 +39,7 @@
             <a href="#" class="btn">Get Started</a>
         </div>
         {% if request.user.is_authenticated %}
-    <p>Welcome, {{ request.user.username }}!</p>
+    <p>Welcome, {{ request.user.first_name }}!</p>
     <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
         <button type="submit">Logout</button>
@@ -51,6 +51,8 @@
     </header>
 
     <!-- Main Content Section -->
+
+    <!----
     <main>
         <div class="container">
             <section class="intro">
@@ -70,7 +72,7 @@
             </section>
         </div>
     </main>
-
+-->
     <!-- Footer Section -->
     <footer>
         <div class="container">
