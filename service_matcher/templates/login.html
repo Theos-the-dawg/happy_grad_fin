@@ -6,64 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-     <!-- Navigation Bar -->
-     <nav>
-        <div class="container">
+    <div class="container">
+        <nav class="navbar">
             <div class="logo">
-                <a href="{% url 'home' %}"></a>
+                <a href="{% url 'home' %}"><img src="{% static 'images/logo.svg' %}" alt="Happy Grad Logo" style="width: 85px;"></a>
             </div>
-            <ul class="nav-links">
+            <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
                 {% if request.user.is_authenticated %}
-        <li><a href="{% url 'logout' %}">Logout</a></li>
-    {% else %}
-        <li><a href="{% url 'login' %}">Login</a></li>
-    {% endif %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
                 <li><a href="{% url 'services' %}">Services</a></li>
                 <li><a href="{% url 'documents' %}">Request</a></li>
-                <li><a href="{% url 'useful_links'%}"> Useful Links</a></li>
-                <li><a href="{% url 'join_the_team'%}">Join the team</a></li>
+                <li><a href="{% url 'useful_links' %}">Useful Links</a></li>
+                <li><a href="{% url 'join_the_team' %}">Join the team</a></li>
             </ul>
-        </div>
-    </nav>
-   
-    <div class="login-container">
-
-        <h1> Login</h1>
-        <form method="post" action="{% url 'login' %}">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email">
+        </nav>
+        <div class="login-container">
+            <h1>Login</h1>
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password">
-            </div>
-            <button type="submit">Login</button>
-        </form>
-        {% if messages %}
-        <div class="messages">
-            {% for message in messages %}
-                <p>{{ message }}</p>
-            {% endfor %}
+            {% endif %}
+            <p>Don't have an account? <a href="{% url 'join_the_team' %}">Register here</a></p>
         </div>
-        {% endif %}
-        <p>Don't have an account? <a href="{% url 'join_the_team' %}">Register here</a></p>
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 Happy Grad. All rights reserved.</p>
+            </div>
+        </footer>
     </div>
-     <!-- Footer section -->
-     <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="#"><img src="{% static 'images/icon-instagram.png' %}" alt="Instagram"></a>
-                <a href="#"><img src="{% static 'images/icon-facebook.png' %}" alt="Facebook"></a>
-                <a href="#"><img src="{% static 'images/icon-twitter.png' %}" alt="twitter"></a>
-            </div>
-            <p>&copy; 2024 Happy Grad. All rights reserved.</p>
-        </div>
-    </footer>
 </body>
 </html>

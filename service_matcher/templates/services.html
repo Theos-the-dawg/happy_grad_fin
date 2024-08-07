@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {%load static%}
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Grad - Our Services</title>
@@ -10,59 +10,57 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="Happy Grad Logo">
-            <p>Take control of today</p>
-        </div>
-        <nav>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{% static 'images/logo.svg' %}" alt="Happy Grad Logo" style="width: 85px;">
+            </div>
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
                 {% if request.user.is_authenticated %}
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-            {% else %}
-                <li><a href="{% url 'login' %}">Login</a></li>
-            {% endif %}
-                <li><a href="{% url 'services' %}">services</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+                <li><a href="{% url 'services' %}">Services</a></li>
                 <li><a href="{% url 'documents' %}">Request</a></li>
                 <li><a href="{% url 'useful_links' %}">Useful Links</a></li>
                 <li><a href="{% url 'join_the_team' %}">Join the team</a></li>
             </ul>
         </nav>
-    </header>
-    <main>
-        <h1>Our Services</h1>
-        <div class="services">
-            <div class="service-item">
-                <img src="educational.jpg" alt="Educational Services">
-                <h2>Educational Services</h2>
-                <p>Tutorials</p>
-                <p>Research Assistance</p>
+        <main>
+            <h1>Our Services</h1>
+            <div class="services">
+                <div class="service-item">
+                    <img src="{% static 'images/educational.jpg' %}" alt="Educational Services">
+                    <h2>Educational Services</h2>
+                    <p>Tutorials</p>
+                    <p>Research Assistance</p>
+                </div>
+                <div class="service-item">
+                    <img src="{% static 'images/professional.jpg' %}" alt="Young Professional Services">
+                    <h2>Young Professional Services</h2>
+                    <p>CV Writing</p>
+                    <p>Twitter Profile</p>
+                </div>
+                <div class="service-item">
+                    <img src="{% static 'images/other.jpg' %}" alt="Other Services">
+                    <h2>Other</h2>
+                    <p>Find a Mentor</p>
+                    <p>Negotiation Skills</p>
+                </div>
             </div>
-            <div class="service-item">
-                <img src="professional.jpg" alt="Young Professional Services">
-                <h2>Young Professional Services</h2>
-                <p>CV Writing</p>
-                <p>twitter Profile</p>
+        </main>
+        <footer>
+            <div class="container">
+                <div class="social-links">
+                    <a href="#"><img src="{% static 'images/icon-instagram.png' %}" alt="Instagram"></a>
+                    <a href="#"><img src="{% static 'images/icon-facebook.png' %}" alt="Facebook"></a>
+                    <a href="#"><img src="{% static 'images/icon-twitter.png' %}" alt="twitter"></a>
+                </div>
+                <p>&copy; 2024 Happy Grad. All rights reserved.</p>
             </div>
-            <div class="service-item">
-                <img src="other.jpg" alt="Other Services">
-                <h2>Other</h2>
-                <p>Find a Mentor</p>
-                <p>Negotiation skills</p>
-            </div>
-        </div>
-    </main>
-     <!-- Footer section -->
-     <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="#"><img src="{% static 'images/icon-instagram.png' %}" alt="Instagram"></a>
-                <a href="#"><img src="{% static 'images/icon-facebook.png' %}" alt="Facebook"></a>
-                <a href="#"><img src="{% static 'images/icon-twitter.png' %}" alt="twitter"></a>
-            </div>
-            <p>&copy; 2024 Happy Grad. All rights reserved.</p>
-        </div>
-    </footer>
+        </footer>
+    </div>
 </body>
 </html>

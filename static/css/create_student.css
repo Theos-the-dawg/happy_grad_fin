@@ -1,115 +1,180 @@
+/* create_tutor.css */
+
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #faf0d1;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #062d3d;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 50px;
+    height: 50px;
+}
+
+header .logo p {
+    margin-left: 10px;
+    font-size: 1em;
+    color: #ffd700;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
     margin: 0;
     padding: 0;
 }
 
-nav {
-    background-color: #003366;
-    color: white;
-    padding: 10px 0;
+header nav ul li {
+    margin-left: 20px;
 }
 
-nav .container {
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ffd700;
+}
+
+main {
+    background-color: #f0e68c;
+    text-align: center;
+    padding: 50px 0;
+}
+
+main h1 {
+    font-size: 3em;
+    margin-bottom: 40px;
+    color: #062d3d;
+}
+
+form {
+    background-color: #f0e68c;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+form h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #062d3d;
+    text-align: center;
+}
+
+form label {
+    font-weight: bold;
+    color: #062d3d;
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="date"],
+form input[type="file"],
+form select,
+form textarea {
+    width: calc(50% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form input[type="text"]:nth-child(odd),
+form input[type="email"]:nth-child(odd),
+form input[type="date"]:nth-child(odd),
+form input[type="file"]:nth-child(odd),
+form select:nth-child(odd),
+form textarea:nth-child(odd) {
+    margin-right: 20px;
+}
+
+form textarea {
+    width: calc(100% - 20px);
+    height: 100px;
+}
+
+form button {
+    background-color: #062d3d;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #ffd700;
+    color: #062d3d;
+}
+
+/* Footer Section */
+footer {
+    background-color: #062d3d;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-nav .logo a {
-    text-decoration: none;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
+footer .social-links a {
+    margin: 0 10px;
+    display: inline-block;
 }
 
-nav .nav-links {
-    list-style: none;
-    padding: 0;
+footer .social-links img {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s;
+}
+
+footer .social-links img:hover {
+    opacity: 0.7;
+}
+
+footer p {
     margin: 0;
-    display: flex;
 }
 
-nav .nav-links li {
-    margin: 0 15px;
-}
-
-nav .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav .nav-links a:hover {
-    text-decoration: underline;
-}
-
-.register-container {
-    background-color: #fff8e1;
-    border: 1px solid #003366;
-    border-radius: 10px;
-    width: 50%;
-    margin: 50px auto;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.register-container h1 {
-    font-size: 36px;
-    color: #003366;
-    margin-bottom: 20px;
-}
-
-.register-container form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.register-container form p {
-    margin-bottom: 20px;
+/* Additional styles for the yellow border at the bottom */
+body::after {
+    content: '';
+    display: block;
     width: 100%;
-}
-
-.register-container form button {
-    background-color: #003366;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.register-container form button:hover {
-    background-color: #002244;
-}
-
-.register-container p {
-    margin-top: 20px;
-}
-
-.register-container a {
-    color: #003366;
-    text-decoration: none;
-}
-
-.register-container a:hover {
-    text-decoration: underline;
-}
-
-footer {
-    background-color: #003366;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
+    height: 5px;
+    background-color: #ffd700;
     position: fixed;
-    width: 100%;
     bottom: 0;
-}
-
-footer .container {
-    margin: 0 auto;
+    left: 0;
 }

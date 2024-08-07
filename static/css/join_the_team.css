@@ -1,125 +1,150 @@
+/* join_the_team.css */
+
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #faf0d1;
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
-    padding: 0;
+    background-image: url('/static/images/home_wallpaper.jpg'); /* Add your background image here */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
 }
 
 .container {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background: rgba(255, 255, 255, 0.9); /* White background with transparency */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.navbar {
-    background-color: #003366;
-    overflow: hidden;
-    color: white;
+nav {
+    background-color: #062d3d;
+    color: #fff;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px 0;
 }
 
-.navbar ul {
-    list-style-type: none;
+nav ul {
+    list-style: none;
+    display: flex;
     margin: 0;
     padding: 0;
-    text-align: center;
 }
 
-.navbar ul li {
-    display: inline;
-    margin: 0 15px;
+nav ul li {
+    margin-left: 20px;
 }
 
-.navbar ul li a {
-    color: white;
+nav ul li a {
+    color: #fff;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s;
 }
 
-.navbar ul li a:hover {
-    text-decoration: underline;
+nav ul li a:hover {
+    color: #ffd700; /* Gold color */
 }
 
-.form-container {
+header {
     text-align: center;
-    padding: 20px;
-    background-color: #fff8e1;
-    border: 1px solid #003366;
-    border-radius: 10px;
+    padding: 100px 0;
 }
 
-.form-container h1 {
-    font-size: 36px;
+header h1 {
+    font-size: 3em;
     margin-bottom: 20px;
-    color: #003366;
 }
 
-.form-container p {
-    font-size: 18px;
+header p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+main .container {
+    padding: 50px 0;
+}
+
+main h2 {
+    font-size: 2.5em;
     margin-bottom: 20px;
-    color: #003366;
+    color: #062d3d;
 }
 
-.button-group {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+main p {
+    font-size: 1.2em;
+    color: #333;
 }
 
-.btn {
-    display: inline-block;
-    padding: 15px 30px;
-    margin: 10px;
-    background-color: #003366;
-    color: white;
-    text-decoration: none;
+main form {
+    margin-top: 30px;
+}
+
+main .form-group {
+    margin-bottom: 20px;
+}
+
+main .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #062d3d;
+}
+
+main .form-group input,
+main .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 18px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
 }
 
-.btn:hover {
+main .btn {
+    background-color: #062d3d;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+main .btn:hover {
     background-color: #0055a5;
 }
 
-
-/* Footer styles */
 footer {
-    background-color:  rgb(7, 7, 77); /* Dark background color */
-    color: white;
+    background-color: #062d3d;
+    color: #fff;
     text-align: center;
     padding: 20px 0;
 }
 
-.social-icons {
-    list-style-type: none;
-    padding: 0;
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.social-icons li {
+footer .social-links a {
+    margin: 0 10px;
     display: inline-block;
-    margin-right: 10px;
 }
 
-.social-icon {
-    display: block;
-    width: 40px;
-    height: 40px;
-    background-size: cover;
+footer .social-links img {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s;
 }
 
-/* Social media icons background images */
-.social-icon.facebook {
-    background-image: url('{% static "facebook.png" %}');
+footer .social-links img:hover {
+    opacity: 0.7;
 }
 
-.social-icon.twitter {
-    background-image: url('{% static "twitter.png" %}');
-}
-
-.social-icon.instagram {
-    background-image: url('{% static "instagram.png" %}');
+footer p {
+    margin: 0;
 }

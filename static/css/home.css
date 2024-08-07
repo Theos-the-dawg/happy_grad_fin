@@ -24,13 +24,6 @@ nav .container {
     padding: 10px 0;
 }
 
-nav .logo a {
-    display: block;
-    background-image: url('/static/images/logo.png'); /* Assuming your logo is saved in the static/images directory */
-    background-size: contain;
-    width: 150px;
-    height: 50px;
-}
 
 nav ul {
     list-style: none;
@@ -55,8 +48,8 @@ nav ul li a:hover {
 }
 
 /* Header Section */
-header {
-    background-image: url('/static/images/background.jpg'); /* Add your background image here */
+img{
+    background-image: url('/static/images/home_wallpaper.jpg'); /* Add your background image here */
     background-size: cover;
     background-position: center;
     color: #fff;
