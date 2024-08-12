@@ -1,71 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% load static%}
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Useful links</title>
+    <title>Useful Links</title>
+    <link rel="icon" href="/static/images/logo.svg" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/useful_links.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-<nav>
-    <div class="container">
-        <div class="logo">
-            <a href="{% url 'home' %}"></a>
-        </div>
-        <ul class="nav-links">
-            <li><a href="{% url 'home' %}">Home</a></li>
-            {% if request.user.is_authenticated %}
-    <li><a href="{% url 'logout' %}">Logout</a></li>
-{% else %}
-    <li><a href="{% url 'login' %}">Login</a></li>
-{% endif %}
-            <li><a href="{% url 'services' %}">services</a></li>
-            <li><a href="{% url 'documents' %}">Request</a></li>
-            <li><a href="{% url 'useful_links' %}">Useful Links</a></li>
-            <li><a href="{% url 'join_the_team'%}">Join the team</a></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="slides">
-    <div class="slide">
-        <div class="column">
-           
-            <h1>Useful Links</h1>
-            <ul>
-                <h2>academica</h2>
-                <li>Young professional</li>
-                <li>Research paper free downloads</li>
-                <li>AI – Links for productivity</li>
-                <li>International Scholarships - DHET</li>
-                <li>International Scholarships - Other</li>
-                <li>Local Scholarships - Corporate</li>
-                <li>Local Scholarships - Government</li>
-            </ul>
-        </div>
-        <div class="column">
-            <h2>Business/Young Professional</h2>
-            <ul>
-                <li>Jobsites</li>
-                <li>Recruiters for your career</li>
-                <li>Adult learning</li>
-                <li>Short courses for Free</li>
-            </ul>
-        </div>
-    </div>
-</div>
- <!-- Footer section -->
- <footer>
-    <div class="container">
-        <div class="social-links">
-            <a href="#"><img src="{% static 'images/icon-instagram.png' %}" alt="Instagram"></a>
-            <a href="#"><img src="{% static 'images/icon-facebook.png' %}" alt="Facebook"></a>
-            <a href="#"><img src="{% static 'images/icon-twitter.png' %}" alt="twitter"></a>
-        </div>
-        <p>&copy; 2024 Happy Grad. All rights reserved.</p>
-    </div>
-</footer>
+</head>
 <body>
-    
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <img src="{% static 'images/logo.svg' %}" alt="Happy Grad Logo" style="width: 85px;">
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'documents' %}">Request</a></li>
+                <li><a href="{% url 'useful_links' %}">Useful Links</a></li>
+                <li><a href="{% url 'join_the_team' %}">Join the team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content Section -->
+    <section class="content">
+        <div class="container">
+            <h1>Useful Links</h1>
+            <div class="slides">
+                <div class="slide">
+                    <div class="column">
+                        <h2>Academica</h2>
+                        <ul>
+                            <li><a href="#">Young Professional</a></li>
+                            <li><a href="#">Research Paper Free Downloads</a></li>
+                            <li><a href="#">AI – Links for Productivity</a></li>
+                            <li><a href="#">International Scholarships - DHET</a></li>
+                            <li><a href="#">International Scholarships - Other</a></li>
+                            <li><a href="#">Local Scholarships - Corporate</a></li>
+                            <li><a href="#">Local Scholarships - Government</a></li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h2>Business/Young Professional</h2>
+                        <ul>
+                            <li><a href="#">Jobsites</a></li>
+                            <li><a href="#">Recruiters for Your Career</a></li>
+                            <li><a href="#">Adult Learning</a></li>
+                            <li><a href="#">Short Courses for Free</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><img src="{% static 'images/icon-instagram.png' %}" alt="Instagram"></a>
+                <a href="#"><img src="{% static 'images/icon-facebook.png' %}" alt="Facebook"></a>
+                <a href="#"><img src="{% static 'images/icon-twitter.png' %}" alt="Twitter"></a>
+            </div>
+            <p>&copy; 2024 Happy Grad. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
