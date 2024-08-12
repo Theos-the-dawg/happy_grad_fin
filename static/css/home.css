@@ -48,15 +48,15 @@ nav ul li a:hover {
 }
 
 /* Header Section */
-img{
-    background-image: url('/static/images/home_wallpaper.jpg'); /* Add your background image here */
+/* img{
+    background-image: url('/static/images/home_wallpaper.jpg');
     background-size: cover;
     background-position: center;
     color: #fff;
     text-align: center;
     padding: 100px 0;
     position: relative;
-}
+} */
 
 header .container {
     position: relative;
