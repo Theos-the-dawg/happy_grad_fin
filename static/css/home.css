@@ -159,6 +159,7 @@ footer p {
 }
 
 /* Additional styles for the yellow border at the bottom */
+
 body::after {
     content: '';
     display: block;
