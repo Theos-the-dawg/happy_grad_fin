@@ -1,5 +1,3 @@
-/* services.css */
-
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
@@ -86,6 +84,19 @@ main h1 {
     margin: 5px 0;
 }
 
+/* Consistent Icon Styling */
+.service-item .social-icon {
+    font-size: 24px;  /* Size of the icons */
+    margin: 10px;
+    color: #062d3d;  /* Default color */
+    transition: color 0.3s, transform 0.3s ease;  /* Add a hover effect */
+}
+
+.service-item .social-icon:hover {
+    color: #ffd700;  /* Change color on hover */
+    transform: scale(1.1);  /* Slightly enlarge the icon */
+}
+
 /* Footer */
 footer {
     background-color: #062d3d;
@@ -113,6 +124,30 @@ footer .social-links img {
 
 footer .social-links img:hover {
     opacity: 0.7;
+}
+.facebook-icon{
+    color: #074075;
+
+}
+.facebook-icon:hover{
+color: #01274b;
+}
+
+/* Twitter Icon Specific Styling */
+.twitter-icon {
+    color: #1DA1F2;
+}
+
+.twitter-icon:hover {
+    color: #0d95e8;
+}
+
+.insta-icon{
+    color: rgba(128, 0, 128, 0.733)
+}
+.insta-icon:hover{
+   
+    color:  rgb(200, 255, 0)
 }
 
 footer p {

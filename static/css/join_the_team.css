@@ -1,10 +1,11 @@
 body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
-    background-image: url('/static/images/home_wallpaper.jpg'); /* Add your background image here */
+    background-image: url('/static/images/home_wallpaper.jpg'); /* Add your background image */
     background-size: cover;
     background-position: center;
     color: #fff;
+    padding-bottom: 5px;
 }
 
 .container {
@@ -15,23 +16,18 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Navigation */
 nav {
     background-color: #062d3d;
     color: #fff;
 }
 
-nav .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-}
-
 nav ul {
     list-style: none;
     display: flex;
+    justify-content: flex-end;
     margin: 0;
-    padding: 0;
+    padding: 10px 0;
 }
 
 nav ul li {
@@ -46,104 +42,92 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #ffd700; /* Gold color */
+    color: #ffd700;
 }
 
-header {
+/* Form Section */
+.form-container {
     text-align: center;
-    padding: 100px 0;
-}
-
-header h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-    color: #062d3d;
-}
-
-header p {
-    font-size: 1.5em;
-    margin-bottom: 30px;
-}
-
-main .container {
     padding: 50px 0;
 }
 
-main h2 {
+.form-container h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
     color: #062d3d;
 }
 
-main p {
+.form-container p {
     font-size: 1.2em;
     color: #333;
 }
 
-main form {
-    margin-top: 30px;
-}
-
-main .form-group {
-    margin-bottom: 20px;
-}
-
-main .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #062d3d;
-}
-
-main .form-group input,
-main .form-group select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-main .btn {
+.form-container .button-group a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
     background-color: #062d3d;
     color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
     border-radius: 5px;
+    text-decoration: none;
     transition: background-color 0.3s;
+    font-weight: bold;
 }
 
-main .btn:hover {
+.form-container .button-group a:hover {
     background-color: #0055a5;
 }
 
+/* Footer */
 footer {
     background-color: #062d3d;
-    color: #fff;
+    color:  #062d3d;
     text-align: center;
     padding: 20px 0;
 }
 
-footer .container {
+footer .social-icons {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-footer .social-links a {
+footer .social-icons li {
     margin: 0 10px;
-    display: inline-block;
 }
 
-footer .social-links img {
-    width: 24px;
-    height: 24px;
+footer .social-icons a {
+    
+    font-size: 24px;
     transition: opacity 0.3s;
 }
 
-footer .social-links img:hover {
+footer .social-icons a:hover {
     opacity: 0.7;
 }
+.facebook-icon{
+    color: #074075;
 
-footer p {
-    margin: 0;
+}
+.facebook-icon:hover{
+color: #01274b;
+}
+
+/* Twitter Icon Specific Styling */
+.twitter-icon {
+    color: #1DA1F2;
+}
+
+.twitter-icon:hover {
+    color: #0d95e8;
+}
+
+.insta-icon{
+    color: rgba(128, 0, 128, 0.733)
+}
+.insta-icon:hover{
+   
+    color:  rgb(200, 255, 0)
 }
