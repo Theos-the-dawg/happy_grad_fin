@@ -71,6 +71,7 @@
     <link rel="stylesheet" href="{% static 'css/documents.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="container">
@@ -92,7 +93,7 @@
             </ul>
         </nav>
         <div class="form-container">
-            <h1>Request</h1>
+       <h1>Document</h1>
             <form method="post" action="{% url 'documents' %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
@@ -109,9 +110,9 @@
         <footer>
             <div class="container">
                 <div class="social-links">
-                    <a href="#"><img src="{% static 'images/icon-instagram.png' %}" alt="Instagram"></a>
-                    <a href="#"><img src="{% static 'images/icon-facebook.png' %}" alt="Facebook"></a>
-                    <a href="#"><img src="{% static 'images/icon-twitter.png' %}" alt="twitter"></a>
+                    <a href="#" class="social-icon facebook-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon twitter-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon insta-icon"><i class="fab fa-instagram"></i></a>
                 </div>
                 <p>&copy; 2024 Happy Grad. All rights reserved.</p>
             </div>

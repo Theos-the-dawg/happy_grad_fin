@@ -109,6 +109,33 @@ footer p {
     margin: 0;
 }
 
+.facebook-icon{
+    color: #074075;
+
+}
+.facebook-icon:hover{
+color: #01274b;
+}
+
+/* Twitter Icon Specific Styling */
+.twitter-icon {
+    color: #1DA1F2;
+}
+
+.twitter-icon:hover {
+    color: #0d95e8;
+}
+
+.insta-icon{
+    color: rgba(128, 0, 128, 0.733)
+}
+.insta-icon:hover{
+   
+    color:  rgb(200, 255, 0)
+}
+footer p {
+    margin: 0;
+}
 /* Additional styles for the yellow border at the bottom */
 body::after {
     content: '';
