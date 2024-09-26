@@ -69,7 +69,7 @@ def login(request):
     #                 messages.error(request, 'Student does not exist.')
         
     #return render(request, 'login.html', {'form': form})
-     form = LoginForm(request.POST or None)
+    form = LoginForm(request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
             email = form.cleaned_data.get('email')
