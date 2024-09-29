@@ -1,13 +1,11 @@
 from pyexpat.errors import messages
 from django.shortcuts import redirect, render
-from .forms import LoginForm, StudentRegistrationForm,TutorRegistrationForm
+from .forms import( LoginForm, StudentRegistrationForm,
+                  TutorRegistrationForm, UserRegistrationForm,DocumentForm)
 from django.contrib.auth import authenticate, login as auth_login,logout
-from .forms import DocumentForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login as auth_login
 from django.contrib import messages
-from .forms import UserRegistrationForm, StudentRegistrationForm, TutorRegistrationForm
-from .models import Student, Tutor, MyUser
+from .models import Student, Tutor
 
 
 def home(request):
@@ -111,6 +109,7 @@ def useful_links(request):
 
 def join_the_team(request):
     return render(request, 'join_the_team.html')
+
 #@login_required  #alt for currrent logic
 def documents(request):
     form = DocumentForm(request.POST or None, request.FILES or None)

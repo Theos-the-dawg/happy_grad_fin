@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
     background: rgba(255, 255, 255, 0.9); /* White background with transparency */

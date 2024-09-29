@@ -7,6 +7,7 @@ body {
 .container {
     width: 100%;
     margin: 0 auto;
+    padding: 0 20px; /* Add padding for better spacing on smaller screens */
 }
 
 /* Navigation Bar */
@@ -16,7 +17,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 10px 20px; /* Add more padding for better spacing */
+    flex-wrap: wrap; /* Ensure navbar wraps on small screens */
 }
 
 .navbar ul {
@@ -24,10 +26,12 @@ body {
     display: flex;
     margin: 0;
     padding: 0;
+    flex-wrap: wrap; /* Wrap nav items for better responsiveness */
 }
 
 .navbar ul li {
     margin-left: 20px;
+    margin-bottom: 10px; /* Add space between items for mobile */
 }
 
 .navbar ul li a {
@@ -35,15 +39,41 @@ body {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
+    padding: 10px;
 }
 
 .navbar ul li a:hover {
     color: #ffd700; /* Gold color */
 }
 
+/* Responsive navbar for mobile */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+
+    .navbar ul li a {
+        padding: 10px 0;
+        width: 100%;
+        display: block;
+    }
+}
+
 /* Main Content */
 main {
-    padding: 50px 0;
+    padding: 50px 20px;
 }
 
 main h1 {
@@ -66,6 +96,12 @@ main h1 {
     margin: 10px;
     text-align: center;
     width: 30%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 
 .service-item img {
@@ -77,6 +113,7 @@ main h1 {
 .service-item h2 {
     color: #062d3d;
     margin-bottom: 10px;
+    font-size: 1.5rem;
 }
 
 .service-item p {
@@ -84,17 +121,30 @@ main h1 {
     margin: 5px 0;
 }
 
-/* Consistent Icon Styling */
+/* Responsive service item layout */
+@media (max-width: 768px) {
+    .service-item {
+        width: 45%; /* Adjust width for tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .service-item {
+        width: 100%; /* Full-width for mobile */
+    }
+}
+
+/* Icon Styling Consistency */
 .service-item .social-icon {
-    font-size: 24px;  /* Size of the icons */
+    font-size: 24px;
     margin: 10px;
-    color: #062d3d;  /* Default color */
-    transition: color 0.3s, transform 0.3s ease;  /* Add a hover effect */
+    color: #062d3d;
+    transition: color 0.3s, transform 0.3s ease;
 }
 
 .service-item .social-icon:hover {
-    color: #ffd700;  /* Change color on hover */
-    transform: scale(1.1);  /* Slightly enlarge the icon */
+    color: #ffd700;
+    transform: scale(1.1);
 }
 
 /* Footer */
@@ -109,6 +159,13 @@ footer .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .social-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
 footer .social-links a {
@@ -116,24 +173,29 @@ footer .social-links a {
     display: inline-block;
 }
 
-footer .social-links img {
-    width: 24px;
-    height: 24px;
+footer .social-links i {
+    font-size: 24px;
     transition: opacity 0.3s;
 }
 
-footer .social-links img:hover {
+footer .social-links i:hover {
     opacity: 0.7;
 }
-.facebook-icon{
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Social Icon Specific Colors */
+.facebook-icon {
     color: #074075;
-
-}
-.facebook-icon:hover{
-color: #01274b;
 }
 
-/* Twitter Icon Specific Styling */
+.facebook-icon:hover {
+    color: #01274b;
+}
+
 .twitter-icon {
     color: #1DA1F2;
 }
@@ -142,16 +204,12 @@ color: #01274b;
     color: #0d95e8;
 }
 
-.insta-icon{
-    color: rgba(128, 0, 128, 0.733)
-}
-.insta-icon:hover{
-   
-    color:  rgb(200, 255, 0)
+.insta-icon {
+    color: rgba(128, 0, 128, 0.733);
 }
 
-footer p {
-    margin: 0;
+.insta-icon:hover {
+    color: rgb(200, 255, 0);
 }
 
 /* Additional styles for the yellow border at the bottom */
@@ -164,4 +222,20 @@ body::after {
     position: fixed;
     bottom: 0;
     left: 0;
+}
+
+/* Ensure the design fits mobile screens */
+@media (max-width: 480px) {
+    main h1 {
+        font-size: 2rem;
+    }
+
+    .navbar ul li {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    footer .container {
+        flex-direction: column;
+    }
 }

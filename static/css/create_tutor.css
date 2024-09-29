@@ -54,7 +54,7 @@ header nav ul li a:hover {
 }
 
 main {
-    background-color: #f0e68c;
+    background-color: #fff;
     text-align: center;
     padding: 50px 0;
 }
@@ -66,12 +66,12 @@ main h1 {
 }
 
 form {
-    background-color: #f0e68c;
+    background-color: #062d3d;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 14px rgba(0, 0, 0, 0.1);
     text-align: left;
 }
 
@@ -84,7 +84,7 @@ form h1 {
 
 form label {
     font-weight: bold;
-    color: #062d3d;
+    color: #fff;
     display: block;
     margin-bottom: 5px;
 }
@@ -148,19 +148,29 @@ footer .container {
     align-items: center;
 }
 
-footer .social-links a {
-    margin: 0 10px;
-    display: inline-block;
+.facebook-icon{
+    color: #074075;
+
+}
+.facebook-icon:hover{
+color: #01274b;
 }
 
-footer .social-links img {
-    width: 24px;
-    height: 24px;
-    transition: opacity 0.3s;
+/* Twitter Icon Specific Styling */
+.twitter-icon {
+    color: #1DA1F2;
 }
 
-footer .social-links img:hover {
-    opacity: 0.7;
+.twitter-icon:hover {
+    color: #0d95e8;
+}
+
+.insta-icon{
+    color: rgba(128, 0, 128, 0.733)
+}
+.insta-icon:hover{
+   
+    color:  rgb(200, 255, 0)
 }
 
 footer p {

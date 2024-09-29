@@ -6,12 +6,10 @@ services:
     command: gunicorn happy_grad_fin.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - .:/app
-      - ./db.sqlite3:/app/db.sqlite3  # Persist the SQLite database file
-#      - ./static:/app/static  # Optional: Mount the static files directory if needed
+      - ./db.sqlite3:/app/db.sqlite3
+      #- ./static:/app/static
     ports:
       - "8000:8000"
     environment:
-      - DEBUG=1  # Optional: Control Django's DEBUG setting via an environment variable
-
-volumes:
-  db_data:
+      - DEBUG=1
+      - DJANGO_SETTINGS_MODULE=happy_grad_fin.settings  # Set Django settings module

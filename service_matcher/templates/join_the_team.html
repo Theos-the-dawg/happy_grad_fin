@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join the Team</title>
+    <link rel="icon" href="/static/images/logo.svg" type="image/x-icon"/>
     <link rel="stylesheet" href="{% static 'css/join_the_team.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
 </head>
 <body>
     <div class="container">
@@ -22,7 +22,7 @@
                 {% endif %}
                 <li><a href="{% url 'services' %}">Services</a></li>
                 <li><a href="{% url 'documents' %}">Request</a></li>
-                <li><a href="{% url 'useful_links' %}">Links</a></li>
+                <li><a href="{% url 'useful_links' %}">Useful Links</a></li>
                 <li><a href="{% url 'join_the_team' %}">Join the team</a></li>
             </ul>
         </nav>
