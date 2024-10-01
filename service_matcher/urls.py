@@ -3,7 +3,8 @@ from .views import (home,login_view,logout_view,services,create_Student,
                      create_Tutor,useful_links,documents,join_the_team, index_view)
 
 urlpatterns = [
-     path('home/',home,name='home'),#home
+     path('',index_view,name='index'),#""" allows redirect to home page. allow keeping the www.happy_grad.co.za/"""
+     path('home/',home,name='home'),#home which then leads to the home page
      path('login/',login_view,name='login'),#login
      path('logout/', logout_view, name='logout'),#logout
      path('services/',services,name='services'),#services page
