@@ -1,4 +1,3 @@
-/* Base Styles */
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
@@ -6,8 +5,9 @@ body {
 }
 
 .container {
-    width: 90%;  /* Use percentage for fluid resizing */
+    width: 100%;
     margin: 0 auto;
+    padding: 20x; /* Add padding for better spacing on smaller screens */
 }
 
 /* Navigation Bar */
@@ -17,7 +17,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 0x 20px;/*Add more padding for better spacing */
+    flex-wrap: wrap; /* Ensure navbar wraps on small screens */
 }
 
 .navbar ul {
@@ -25,10 +26,12 @@ body {
     display: flex;
     margin: 0;
     padding: 0;
+    flex-wrap: wrap; /* Wrap nav items for better responsiveness */
 }
 
 .navbar ul li {
-    margin-left: 20px;
+    margin-left: 0px;
+    margin-bottom: 15x; /* Add space between items for mobile */
 }
 
 .navbar ul li a {
@@ -36,44 +39,112 @@ body {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
+    padding: 10px;
 }
 
 .navbar ul li a:hover {
-    color: #ffd700;
+    color: #ffd700; /* Gold color */
 }
 
-/* Form Container */
-.form-container {
+/* Responsive navbar for mobile */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+
+    .navbar ul li a {
+        padding: 10px 0;
+        width: 100%;
+        display: block;
+    }
+}
+
+/* Main Content */
+main {
+    padding: 50px 20px;
+}
+
+main h1 {
+    color: #062d3d;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.services {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service-item {
     background-color: #fff;
-    padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px 0;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    width: 30%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-container h1 {
-    color: #062d3d;
-    margin-bottom: 20px;
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 
-.form-container form {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-container button {
-    background-color: #062d3d;
-    color: #fff;
-    padding: 10px;
-    border: none;
+.service-item img {
+    max-width: 100%;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    margin-bottom: 10px;
 }
 
-.form-container button:hover {
-    background-color: #ffd700;
+.service-item h2 {
     color: #062d3d;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.service-item p {
+    color: #555;
+    margin: 5px 0;
+}
+
+/* Responsive service item layout */
+@media (max-width: 768px) {
+    .service-item {
+        width: 45%; /* Adjust width for tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .service-item {
+        width: 100%; /* Full-width for mobile */
+    }
+}
+
+/* Icon Styling Consistency */
+.service-item .social-icon {
+    font-size: 24px;
+    margin: 10px;
+    color: #062d3d;
+    transition: color 0.3s, transform 0.3s ease;
+}
+
+.service-item .social-icon:hover {
+    color: #ffd700;
+    transform: scale(1.1);
 }
 
 /* Footer */
@@ -88,6 +159,13 @@ footer .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .social-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
 footer .social-links a {
@@ -95,14 +173,43 @@ footer .social-links a {
     display: inline-block;
 }
 
-footer .social-links img {
-    width: 24px;
-    height: 24px;
+footer .social-links i {
+    font-size: 24px;
     transition: opacity 0.3s;
 }
 
-footer .social-links img:hover {
+footer .social-links i:hover {
     opacity: 0.7;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Social Icon Specific Colors */
+.facebook-icon {
+    color: #074075;
+}
+
+.facebook-icon:hover {
+    color: #01274b;
+}
+
+.twitter-icon {
+    color: #1DA1F2;
+}
+
+.twitter-icon:hover {
+    color: #0d95e8;
+}
+
+.insta-icon {
+    color: rgba(128, 0, 128, 0.733);
+}
+
+.insta-icon:hover {
+    color: rgb(200, 255, 0);
 }
 
 /* Additional styles for the yellow border at the bottom */
@@ -111,69 +218,50 @@ body::after {
     display: block;
     width: 100%;
     height: 5px;
-    background-color: #ffd700;
+    background-color: #ffd700; /* Gold color */
     position: fixed;
     bottom: 0;
     left: 0;
 }
 
-/* Mobile Responsive Adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        text-align: center;
+        align-items: center; /* Center-align logo and nav items */
     }
 
     .navbar ul {
         flex-direction: column;
         width: 100%;
-        padding: 0;
+        align-items: center;
+        margin-top: 10px; /* Add spacing between logo and menu */
     }
 
     .navbar ul li {
         margin: 10px 0;
     }
 
-    .container {
-        width: 100%; /* Full width on smaller screens */
-        padding: 0 10px;
+    .navbar ul li a {
+        padding: 10px 0;
+        width: 100%;
+        text-align: center; /* Center-align the nav items */
     }
 
-    .form-container {
-        padding: 15px;
-        margin: 15px 0;
-    }
-
-    footer .container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    footer .social-links {
-        margin-bottom: 10px;
+    .service-item {
+        width: 45%; /* Adjust width for tablet */
     }
 }
 
-/* Even smaller screens (mobile phones) */
 @media (max-width: 480px) {
-    .navbar ul {
-        flex-direction: column;
-        padding: 0;
+    .service-item {
+        width: 100%; /* Full-width for mobile */
     }
 
-    .navbar ul li {
-        margin: 10px 0;
-    }
-
-    .form-container {
-        padding: 10px;
-    }
-
+    /* Center-align content in the footer */
     footer .container {
         flex-direction: column;
-    }
-
-    footer .social-links {
-        margin-bottom: 15px;
+        align-items: center;
     }
 }
+

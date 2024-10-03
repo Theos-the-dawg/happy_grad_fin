@@ -20,7 +20,7 @@ nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 0px 0;
 }
 
 nav ul {
@@ -31,7 +31,8 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-right: 15px;
 }
 
 nav ul li a {
@@ -39,6 +40,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
+    margin-right: 15px;
 }
 
 nav ul li a:hover {
@@ -96,7 +98,7 @@ ul li a {
 }
 
 ul li a:hover {
-    color: #007bff;
+   color: #ffd700;
 }
 
 /* Footer Section */
@@ -111,6 +113,13 @@ footer .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .social-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
 footer .social-links a {
@@ -118,29 +127,29 @@ footer .social-links a {
     display: inline-block;
 }
 
-footer .social-links img {
-    width: 24px;
-    height: 24px;
+footer .social-links i {
+    font-size: 24px;
     transition: opacity 0.3s;
 }
 
-footer .social-links img:hover {
+footer .social-links i:hover {
     opacity: 0.7;
 }
 
 footer p {
     margin: 0;
+    font-size: 0.9em;
 }
 
-.facebook-icon{
+/* Social Icon Specific Colors */
+.facebook-icon {
     color: #074075;
-
-}
-.facebook-icon:hover{
-color: #01274b;
 }
 
-/* Twitter Icon Specific Styling */
+.facebook-icon:hover {
+    color: #01274b;
+}
+
 .twitter-icon {
     color: #1DA1F2;
 }
@@ -149,12 +158,12 @@ color: #01274b;
     color: #0d95e8;
 }
 
-.insta-icon{
-    color: rgba(128, 0, 128, 0.733)
+.insta-icon {
+    color: rgba(128, 0, 128, 0.733);
 }
-.insta-icon:hover{
-   
-    color:  rgb(200, 255, 0)
+
+.insta-icon:hover {
+    color: rgb(200, 255, 0);
 }
 footer p {
     margin: 0;

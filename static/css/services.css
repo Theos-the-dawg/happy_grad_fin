@@ -7,7 +7,7 @@ body {
 .container {
     width: 100%;
     margin: 0 auto;
-    padding: 0 20px; /* Add padding for better spacing on smaller screens */
+    padding: 0px; /* Add padding for better spacing on smaller screens */
 }
 
 /* Navigation Bar */
@@ -17,7 +17,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px; /* Add more padding for better spacing */
+    padding: 1px 20px; /* Add more padding for better spacing */
     flex-wrap: wrap; /* Ensure navbar wraps on small screens */
 }
 
@@ -30,8 +30,8 @@ body {
 }
 
 .navbar ul li {
-    margin-left: 20px;
-    margin-bottom: 10px; /* Add space between items for mobile */
+    margin-left: 0px;
+    margin-bottom: 0px; /* Add space between items for mobile */
 }
 
 .navbar ul li a {
