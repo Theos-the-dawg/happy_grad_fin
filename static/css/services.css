@@ -7,7 +7,7 @@ body {
 .container {
     width: 100%;
     margin: 0 auto;
-    padding: 0 20px; /* Add padding for better spacing on smaller screens */
+    padding: 0px; /* Add padding for better spacing on smaller screens */
 }
 
 /* Navigation Bar */
@@ -17,7 +17,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px; /* Add more padding for better spacing */
+    padding: 1px 20px; /* Add more padding for better spacing */
     flex-wrap: wrap; /* Ensure navbar wraps on small screens */
 }
 
@@ -30,8 +30,8 @@ body {
 }
 
 .navbar ul li {
-    margin-left: 20px;
-    margin-bottom: 10px; /* Add space between items for mobile */
+    margin-left: 0px;
+    margin-bottom: 0px; /* Add space between items for mobile */
 }
 
 .navbar ul li a {
@@ -224,18 +224,44 @@ body::after {
     left: 0;
 }
 
-/* Ensure the design fits mobile screens */
-@media (max-width: 480px) {
-    main h1 {
-        font-size: 2rem;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center; /* Center-align logo and nav items */
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        margin-top: 10px; /* Add spacing between logo and menu */
     }
 
     .navbar ul li {
-        margin-left: 0;
-        text-align: center;
+        margin: 10px 0;
     }
 
-    footer .container {
-        flex-direction: column;
+    .navbar ul li a {
+        padding: 10px 0;
+        width: 100%;
+        text-align: center; /* Center-align the nav items */
+    }
+
+    .service-item {
+        width: 45%; /* Adjust width for tablet */
     }
 }
+
+@media (max-width: 480px) {
+    .service-item {
+        width: 100%; /* Full-width for mobile */
+    }
+
+    /* Center-align content in the footer */
+    footer .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
