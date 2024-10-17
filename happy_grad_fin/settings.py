@@ -79,28 +79,16 @@ WSGI_APPLICATION = 'happy_grad_fin.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     # #primary db
-#     # 'default': dj_database_url.config(
-#     #     default='postgresql://postgres:MVDoJonBrvdxAqWKMjGmoUKVZJXUWeRA@postgres-h9tq.railway.internal:5432/railway'
-#     # ),
 
-#     'sqlite': {  # Secondary database (SQLite)
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3'}
-# }
 import dj_database_url
 DATABASES = {
-    'default': dj_database_url.parse('postgresql://postgres:eDsYtailQTTjiwXrOXImGKdZwbuduLnC@autorack.proxy.rlwy.net:48571/railway')
+    #DATABASE 1 MAIN DB FOR SERVICE
+    'default': dj_database_url.parse('postgresql://postgres:eDsYtailQTTjiwXrOXImGKdZwbuduLnC@autorack.proxy.rlwy.net:48571/railway'),
+    # Secondary database (SQLite)
+    'sqlite': {  
+        'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': BASE_DIR / 'db.sqlite3'}
 }
-#OG sqlite file for db
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
