@@ -77,12 +77,12 @@ WSGI_APPLICATION = 'happy_grad_fin.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-import dj_database_url
+#import dj_database_url
 DATABASES = {
     #DATABASE 1 MAIN DB FOR SERVICE
-    'default': dj_database_url.parse('postgresql://postgres:eDsYtailQTTjiwXrOXImGKdZwbuduLnC@autorack.proxy.rlwy.net:48571/railway'),
+    #'default': dj_database_url.parse('postgresql://postgres:eDsYtailQTTjiwXrOXImGKdZwbuduLnC@autorack.proxy.rlwy.net:48571/railway'),
     # Secondary database (SQLite)
-    'sqlite': {  
+    'default': {  
         'ENGINE': 'django.db.backends.sqlite3',
          'NAME': BASE_DIR / 'db.sqlite3'}
 }
