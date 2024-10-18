@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ya-h7^qu2*%7s7$r0r*v403c!&6t7ds^p0q)iawx6+uz1ip1!)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
@@ -77,12 +77,12 @@ WSGI_APPLICATION = 'happy_grad_fin.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
+import dj_database_url
 DATABASES = {
     #DATABASE 1 MAIN DB FOR SERVICE
-    #'default': dj_database_url.parse('postgresql://postgres:eDsYtailQTTjiwXrOXImGKdZwbuduLnC@autorack.proxy.rlwy.net:48571/railway'),
+    'default': dj_database_url.parse('postgresql://postgres:eDsYtailQTTjiwXrOXImGKdZwbuduLnC@autorack.proxy.rlwy.net:48571/railway'),
     # Secondary database (SQLite)
-    'default': {  
+    'sqlite': {  
         'ENGINE': 'django.db.backends.sqlite3',
          'NAME': BASE_DIR / 'db.sqlite3'}
 }
