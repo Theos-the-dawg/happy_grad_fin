@@ -93,7 +93,7 @@
             </ul>
         </nav>
         <div class="form-container">
-       <h1>Document</h1>
+    <h1 id="heading">Document</h1>
             <form method="post" action="{% url 'documents' %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}

@@ -73,6 +73,37 @@ header .btn:hover {
     background-color: #e5c100; /* Darker gold color */
 }
 
+header {
+    text-align: center;
+    padding: 50px 0;
+    position: relative; /* Add relative positioning to the header */
+    overflow: hidden; /* Prevent overflow of the image */
+}
+
+.centered-img {
+    position: absolute; /* Absolute positioning */
+    top: 0; /* Align to the top of the header */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center the image */
+    opacity: 0.5; /* Transparency of the image */
+    width: 100%; /* Fills the container width */
+    max-width: none; /* Remove max width restriction */
+    height: auto; /* Maintains aspect ratio */
+    z-index: -1; /* Set behind other elements */
+}
+
+/* Adjust header text for better visibility over the image */
+header h1,
+header p,
+header .btn {
+    position: relative; /* Ensure text is above the image */
+    z-index: 1; /* Bring text in front of the image */
+    color: #062d3d; /* Change text color for better contrast */
+}
+
+
+
+
 footer {
     background-color: #062d3d;
     color: #fff;
