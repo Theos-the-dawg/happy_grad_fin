@@ -45,7 +45,7 @@ def login_view(request):
                     authenticated_tutor = authenticate(request, email=email, password=password)
                     if authenticated_tutor is not None:
                         auth_login(request, authenticated_tutor)
-                        return redirect('services')
+                        return redirect('document')
                     else:
                         messages.error(request, 'Invalid email or password.')
                 else:
@@ -53,8 +53,14 @@ def login_view(request):
 
     return render(request, 'login.html', {'form': form})
 
+"""NO need to add anymore functionality works fine simple logout access on button click
+Request.user automatically takes from MyUser custom user model
+"""
 def logout_view(request):
-    logout(request)
+    if request.user == None:
+      return redirect(login_view)
+    else:
+     logout(request.user)
     return redirect('home')   
     
 def create_Student(request):
