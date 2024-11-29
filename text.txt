@@ -1,0 +1,1959 @@
+standardize all the html pages to match the structure and create a constant flow 
+
+home page:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="icon" href="/static/images/logo.svg" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <img src="{% static 'images/logo.svg' %}" alt="Happy Grad Logo" style="width: 85px;">
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                {% if request.user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+    {% else %}
+        <li><a href="{% url 'login' %}">Login</a></li>
+    {% endif %}
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'documents' %}">Request</a></li>
+                <li><a href="{% url 'useful_links'%}"> Useful Links</a></li>
+                <li><a href="{% url 'join_the_team'%}">Join the team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <img src="{% static 'images/grad_img_1.png' %}" alt="Happy Grad home picture" class="centered-img">
+            <h1>Welcome to Happy Grad</h1>
+            <p>Your go-to place for amazing services.</p>
+            <a href="{% url 'join_the_team'%}" class="btn">Get Started</a>
+        </div>
+        {% if request.user.is_authenticated %}
+    <p>Welcome, {{ request.user.first_name }}!</p>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+{% else %}
+    <p>Take control of today</p>
+{% endif %}
+    </header>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-icon facebook-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon twitter-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon insta-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="copy_right">&copy; 2024 Happy Grad. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+login page:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" href="/static/images/logo.svg" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="{% url 'home' %}"><img src="{% static 'images/logo.svg' %}" alt="Happy Grad Logo" style="width: 85px;"></a>
+            </div>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'documents' %}">Request</a></li>
+                <li><a href="{% url 'useful_links' %}">Useful Links</a></li>
+                <li><a href="{% url 'join_the_team' %}">Join the team</a></li>
+            </ul>
+        </nav>
+        <div class="login-container">
+            <h1>Login</h1>
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <p>Don't have an account? <a href="{% url 'join_the_team' %}">Register here</a></p>
+        </div>
+        <footer>
+            <div class="container">
+               <center> <p>&copy; 2024 Happy Grad. All rights reserved.</p></center>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
+services page:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Grad - Our Services</title>
+    <link rel="icon" href="/static/images/logo.svg" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/services.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{% static 'images/logo.svg' %}" alt="Happy Grad Logo" style="width: 85px;">
+            </div>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'documents' %}">Request</a></li>
+                <li><a href="{% url 'useful_links' %}">Useful Links</a></li>
+                <li><a href="{% url 'join_the_team' %}">Join the team</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h1>Our Services</h1>
+            <div class="services">
+                <div class="service-item">
+                    <img src="{% static 'images/ed2.png' %}" alt="Educational Services">
+                    <h2>Educational Services</h2>
+                    <p>Tutorials</p>
+                    <p>Research Assistance</p>
+                </div>
+                <div class="service-item">
+                    <img src="{% static 'images/you2.png' %}" alt="Young Professional Services">
+                    <h2>Young Professional Services</h2>
+                    <p>CV Writing</p>
+                    <p>Twitter Profile</p>
+                </div>
+                <div class="service-item">
+                    <img src="{% static 'images/mentor3.png' %}" alt="Other Services">
+                    <h2>Other</h2>
+                    <p>Find a Mentor</p>
+                    <p>Negotiation Skills</p>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="container">
+                <div class="social-links">
+                    <a href="#" class="social-icon facebook-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon twitter-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon insta-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p>&copy; 2024 Happy Grad. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+documents/request page:
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a service</title>
+    <link rel="stylesheet" href="{% static 'css/documents.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <div class="logo">
+        <img src="{% static 'images/logo.svg' %}" alt="Happy Grad Logo" style="width: 100px;">
+    </div>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{% static 'images/logo.svg' %}" alt="Happy Grad Logo" style="width: 100px;">
+            </div>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                {% if request.user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+    {% else %}
+        <li><a href="{% url 'login' %}">Login</a></li>
+    {% endif %}
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'documents' %}">Documents</a></li>
+                <li><a href="{% url 'useful_links'%}">Useful Links</a></li>
+                <li><a href="{% url 'join_the_team'%}">Join the team</a></li>
+            </ul>
+        </nav>
+        <div class="form-container">
+            <h1>Request</h1>
+            <form method="post" action="{% url 'documents' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+            {% endif %}
+        <footer>
+            <div class="container">
+                <div class="social-links">
+                    <a href="#"><img src="{% static 'images/icon-instagram.png' %}" alt="Instagram"></a>
+                    <a href="#"><img src="{% static 'images/icon-facebook.png' %}" alt="Facebook"></a>
+                    <a href="#"><img src="{% static 'images/icon-twitter.png' %}" alt="twitter"></a>
+                </div>
+                <p>&copy; 2024 Happy Grad. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a service</title>
+    <link rel="icon" href="/static/images/logo.svg" type="image/x-icon"/>
+    <link rel="stylesheet" href="{% static 'css/documents.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{% static 'images/logo.svg' %}" alt="Happy Grad Logo" style="width: 100px;">
+            </div>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'documents' %}">Request</a></li>
+                <li><a href="{% url 'useful_links'%}">Useful Links</a></li>
+                <li><a href="{% url 'join_the_team'%}">Join the team</a></li>
+            </ul>
+        </nav>
+        <div class="form-container">
+    <h1 id="heading">Document</h1>
+            <form method="post" action="{% url 'documents' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <footer>
+            <div class="container">
+                <div class="social-links">
+                    <a href="#" class="social-icon facebook-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon twitter-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon insta-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p>&copy; 2024 Happy Grad. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
+usefule links page:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useful Links</title>
+    <link rel="icon" href="/static/images/logo.svg" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/useful_links.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <img src="{% static 'images/logo.svg' %}" alt="Happy Grad Logo" style="width: 85px;">
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'documents' %}">Request</a></li>
+                <li><a href="{% url 'useful_links' %}">Useful Links</a></li>
+                <li><a href="{% url 'join_the_team' %}">Join the team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content Section -->
+    <section class="content">
+        <div class="container">
+            <h1>Useful Links</h1>
+            <div class="slides">
+                <div class="slide">
+                    <div class="column">
+                        <h2>Academica</h2>
+                        <ul>
+                            <li><a href="#">Young Professional</a></li>
+                            <li><a href="#">Research Paper Free Downloads</a></li>
+                            <li><a href="#">AI – Links for Productivity</a></li>
+                            <li><a href="#">International Scholarships - DHET</a></li>
+                            <li><a href="#">International Scholarships - Other</a></li>
+                            <li><a href="#">Local Scholarships - Corporate</a></li>
+                            <li><a href="#">Local Scholarships - Government</a></li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h2>Business/Young Professional</h2>
+                        <ul>
+                            <li><a href="#">Jobsites</a></li>
+                            <li><a href="#">Recruiters for Your Career</a></li>
+                            <li><a href="#">Adult Learning</a></li>
+                            <li><a href="#">Short Courses for Free</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-icon facebook-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon twitter-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon insta-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2024 Happy Grad. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+join the team page:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Team</title>
+    <link rel="icon" href="/static/images/logo.svg" type="image/x-icon"/>
+    <link rel="stylesheet" href="{% static 'css/join_the_team.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{% static 'images/logo.svg' %}" >
+            </div>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'documents' %}">Request</a></li>
+                <li><a href="{% url 'useful_links' %}">Useful Links</a></li>
+                <li><a href="{% url 'join_the_team' %}">Join the team</a></li>
+            </ul>
+        </nav>
+
+        <div class="form-container">
+            <h1>Join the Team</h1>
+            <p>Please select how you would like to join:</p>
+            <div class="button-group">
+                <a href="{% url 'create_student'%}" class="btn">Join as Student</a>
+                <a href="{% url 'create_tutor'%}" class="btn">Join as Tutor</a>
+            </div>
+        </div>
+       
+        <!-- Footer section -->
+        <footer>
+            <div class="icons-container"><!--rename and or delete to function better-->>
+                <ul class="social-icons">
+                    <li><a href="#" class="social-icon facebook-icon"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#" class="social-icon twitter-icon"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#" class="social-icon insta-icon"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+                
+            </div>
+            <p class="copy_right">&copy; 2024 Happy Grad. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
+create a constant structured format for the related html here are the css do not change the style structure the css to the matching html page 
+
+css:
+home page css:
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
+    padding-bottom: 5px; /* Adjust padding to prevent overlap with the bottom border */
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+nav {
+    background-color: #062d3d;
+    color: #fff;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffd700; /* Gold color */
+}
+
+header {
+    text-align: center;
+    padding: 50px 0;
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+header p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+header .btn {
+    background-color: #ffd700; /* Gold color */
+    color: #062d3d; /* Dark blue color */
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+header .btn:hover {
+    background-color: #e5c100; /* Darker gold color */
+}
+
+header {
+    text-align: center;
+    padding: 50px 0;
+    position: relative; /* Add relative positioning to the header */
+    overflow: hidden; /* Prevent overflow of the image */
+}
+
+.centered-img {
+    position: absolute; /* Absolute positioning */
+    top: 0; /* Align to the top of the header */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center the image */
+    opacity: 0.5; /* Transparency of the image */
+    width: 100%; /* Fills the container width */
+    max-width: none; /* Remove max width restriction */
+    height: auto; /* Maintains aspect ratio */
+    z-index: -1; /* Set behind other elements */
+}
+
+/* Adjust header text for better visibility over the image */
+header h1,
+header p,
+header .btn {
+    position: relative; /* Ensure text is above the image */
+    z-index: 1; /* Bring text in front of the image */
+    color: #062d3d; /* Change text color for better contrast */
+}
+
+
+
+
+footer {
+    background-color: #062d3d;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .social-links {
+    margin-bottom: 10px;
+}
+
+footer .social-links a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+footer .social-links i {
+    font-size: 24px;
+    transition: opacity 0.3s;
+}
+
+footer .social-links i:hover {
+    opacity: 0.7;
+}
+
+.facebook-icon{
+    color: #074075;
+
+}
+.facebook-icon:hover{
+color: #01274b;
+}
+
+/* Twitter Icon Specific Styling */
+.twitter-icon {
+    color: #1DA1F2;
+}
+
+.twitter-icon:hover {
+    color: #0d95e8;
+}
+
+.insta-icon{
+    color: rgba(128, 0, 128, 0.733)
+}
+.insta-icon:hover{
+   
+    color:  rgb(200, 255, 0)
+}
+
+footer p {
+    margin: 0;
+}
+
+body::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: #ffd700; /* Gold color */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+}
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    header p {
+        font-size: 1.2em;
+    }
+
+    header .btn {
+        padding: 8px 15px;
+    }
+
+    /* Align logo and nav items in the center */
+    nav .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav .logo img {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    header .btn {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+
+    footer .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+login page css:
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
+    padding-bottom: 5px; /* Adjust padding to prevent overlap with the bottom border */
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #062d3d;
+    color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    
+}
+
+nav ul li {
+    margin-left: 0px;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffd700; /* Gold color */
+}
+
+/* Header Section */
+header {
+    text-align: center;
+    padding: 50px 0;
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #062d3d;
+}
+
+header p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+header .btn {
+    background-color: #ffd700; /* Gold color */
+    color: #062d3d; /* Dark blue color */
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+header .btn:hover {
+    background-color: #e5c100; /* Darker gold color */
+}
+
+/* Login Container */
+.login-container {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-container h1 {
+    color: #062d3d;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #062d3d;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #05527c;
+}
+
+.messages {
+    margin-top: 20px;
+    color: #e74c3c; /* Red color */
+}
+
+/* Footer */
+footer {
+    background-color: #062d3d;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .social-links {
+    margin-bottom: 10px;
+}
+
+footer .social-links a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+footer .social-links i {
+    font-size: 24px;
+    transition: opacity 0.3s;
+}
+
+footer .social-links i:hover {
+    opacity: 0.7;
+}
+
+footer p {
+    margin: 0;
+}
+
+body::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: #ffd700; /* Gold color */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    header p {
+        font-size: 1.2em;
+    }
+
+    header .btn {
+        padding: 8px 15px;
+    }
+
+    /* Align logo and nav items in the center */
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    header .btn {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+
+    footer .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+documents page css:
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
+    padding-bottom: 5px; /* Adjust padding to prevent overlap with the bottom border */
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #062d3d;
+    color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    
+}
+
+nav ul li {
+    margin-left: 0px;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffd700; /* Gold color */
+}
+
+/* Header Section */
+header {
+    text-align: center;
+    padding: 50px 0;
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #062d3d;
+}
+
+header p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+header .btn {
+    background-color: #ffd700; /* Gold color */
+    color: #062d3d; /* Dark blue color */
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+header .btn:hover {
+    background-color: #e5c100; /* Darker gold color */
+}
+
+/* Login Container */
+.login-container {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-container h1 {
+    color: #062d3d;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #062d3d;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #05527c;
+}
+
+.messages {
+    margin-top: 20px;
+    color: #e74c3c; /* Red color */
+}
+
+/* Footer */
+footer {
+    background-color: #062d3d;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .social-links {
+    margin-bottom: 10px;
+}
+
+footer .social-links a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+footer .social-links i {
+    font-size: 24px;
+    transition: opacity 0.3s;
+}
+
+footer .social-links i:hover {
+    opacity: 0.7;
+}
+
+footer p {
+    margin: 0;
+}
+
+body::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: #ffd700; /* Gold color */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    header p {
+        font-size: 1.2em;
+    }
+
+    header .btn {
+        padding: 8px 15px;
+    }
+
+    /* Align logo and nav items in the center */
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    header .btn {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+
+    footer .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+join the team page css:
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    background-image: url('/static/images/home_wallpaper.jpg'); /* Add your background image */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding-bottom: 5px;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px;
+    background: rgba(255, 255, 255, 0.9); /* White background with transparency */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation */
+nav {
+    background-color: #062d3d;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 10px 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+}
+
+/* Form Section */
+.form-container {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.form-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #062d3d;
+}
+
+.form-container p {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.form-container .button-group a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #062d3d;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.form-container .button-group a:hover {
+    background-color: #ffd700;
+}
+
+/* Footer */
+footer {
+    background-color: #062d3d;
+    color:  #062d3d;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer .social-icons {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer .social-icons li {
+    margin: 0 10px;
+}
+
+footer .social-icons a {
+    
+    font-size: 24px;
+    transition: opacity 0.3s;
+}
+
+footer .social-icons a:hover {
+    opacity: 0.7;
+}
+.facebook-icon{
+    color: #074075;
+
+}
+.facebook-icon:hover{
+color: #01274b;
+}
+
+/* Twitter Icon Specific Styling */
+.twitter-icon {
+    color: #1DA1F2;
+}
+
+.twitter-icon:hover {
+    color: #0d95e8;
+}
+
+.insta-icon{
+    color: rgba(128, 0, 128, 0.733)
+}
+.insta-icon:hover{
+   
+    color:  rgb(200, 255, 0)
+}
+.copy_right{
+    color: #fff;
+}
+
+body::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: #ffd700; /* Gold color */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+}
+
+/* Responsive Design */
+/* Ensure the logo stays aligned to the left */
+nav {
+    display: flex;
+    justify-content: space-between; /* Ensures space between the logo and nav items */
+    align-items: center;
+    padding: 10px 20px; /* Adjust for spacing */
+}
+
+nav .logo {
+    margin-right: auto; /* Ensures the logo stays on the left */
+}
+
+nav .logo img {
+    width: 85px;
+}
+
+/* Navigation items */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end; /* Align nav items to the right */
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Stack the logo and nav items */
+        align-items: center;    /* Center them */
+    }
+
+    nav .logo {
+        margin-bottom: 10px; /* Add spacing between logo and nav items */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Adjust spacing between items */
+    }
+}
+
+
+    /* Center form-container contents on mobile */
+    .form-container h1 {
+        font-size: 2em; /* Adjust font size for better readability on mobile */
+    }
+
+    .form-container p {
+        font-size: 1.1em;
+    }
+
+    .form-container .button-group a {
+        padding: 8px 16px;
+        font-size: 1em;
+    }
+
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%; /* Full-width container for smaller screens */
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    nav ul li {
+        margin: 8px 0; /* Adjust spacing between nav items */
+    }
+
+    /* Footer adjustments */
+    footer .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .social-icons {
+        margin-top: 10px;
+    }
+
+    footer .social-icons a {
+        font-size: 20px; /* Adjust icon size for mobile */
+    }
+}
+
+
+services page css:
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px; /* Add padding for better spacing on smaller screens */
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #062d3d;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 20px; /* Add more padding for better spacing */
+    flex-wrap: wrap; /* Ensure navbar wraps on small screens */
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap; /* Wrap nav items for better responsiveness */
+}
+
+.navbar ul li {
+    margin-left: 0px;
+    margin-bottom: 0px; /* Add space between items for mobile */
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    padding: 10px;
+}
+
+.navbar ul li a:hover {
+    color: #ffd700; /* Gold color */
+}
+
+/* Responsive navbar for mobile */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+
+    .navbar ul li a {
+        padding: 10px 0;
+        width: 100%;
+        display: block;
+    }
+}
+
+/* Main Content */
+main {
+    padding: 50px 20px;
+}
+
+main h1 {
+    color: #062d3d;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.services {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service-item {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    width: 30%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+/*     box-shadow: 0 10px 15px gold; */
+    box-shadow: 10px 10px 10px gold , 10px 10px 10px  #062d3d inset;
+}
+
+.service-item img {
+    max-width: 100%;
+    border-radius: 50px;
+    margin-bottom: 10px;
+}
+
+.service-item h2 {
+    color: #062d3d;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+.service-item:hover h2{
+    color:gold;
+}
+
+.service-item p {
+    color:#062d3d;
+    margin: 5px 0;
+}
+
+/* Responsive service item layout */
+@media (max-width: 768px) {
+    .service-item {
+        width: 45%; /* Adjust width for tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .service-item {
+        width: 100%; /* Full-width for mobile */
+    }
+}
+
+/* Icon Styling Consistency */
+.service-item .social-icon {
+    font-size: 24px;
+    margin: 10px;
+    color: #062d3d;
+    transition: color 0.3s, transform 0.3s ease;
+}
+
+.service-item .social-icon:hover {
+    color: #ffd700;
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background-color: #062d3d;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .social-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+footer .social-links a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+footer .social-links i {
+    font-size: 24px;
+    transition: opacity 0.3s;
+}
+
+footer .social-links i:hover {
+    opacity: 0.7;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Social Icon Specific Colors */
+.facebook-icon {
+    color: #074075;
+}
+
+.facebook-icon:hover {
+    color: #01274b;
+}
+
+.twitter-icon {
+    color: #1DA1F2;
+}
+
+.twitter-icon:hover {
+    color: #0d95e8;
+}
+
+.insta-icon {
+    color: rgba(128, 0, 128, 0.733);
+}
+
+.insta-icon:hover {
+    color: rgb(200, 255, 0);
+}
+
+/* Additional styles for the yellow border at the bottom */
+body::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: #ffd700; /* Gold color */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center; /* Center-align logo and nav items */
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        margin-top: 10px; /* Add spacing between logo and menu */
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+
+    .navbar ul li a {
+        padding: 10px 0;
+        width: 100%;
+        text-align: center; /* Center-align the nav items */
+    }
+
+    .service-item {
+        width: 45%; /* Adjust width for tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .service-item {
+        width: 100%; /* Full-width for mobile */
+    }
+
+    /* Center-align content in the footer */
+    footer .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+useful links page css:
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
+    padding-bottom: 5px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #062d3d;
+    color: #fff;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 10px;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    margin-right: 15px;
+}
+
+nav ul li a:hover {
+    color: #ffd700; /* Gold color */
+}
+
+/* Content Section */
+.content {
+    padding: 40px 0;
+    background-color: #f5f5f5;
+}
+
+.slides {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.slide {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.column {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.column:last-child {
+    margin-right: 0;
+}
+
+h1, h2 {
+    color: #062d3d;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+ul li a:hover {
+   color: #ffd700;
+}
+
+/* Footer Section */
+footer {
+    background-color: #062d3d;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .social-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+footer .social-links a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+footer .social-links i {
+    font-size: 24px;
+    transition: opacity 0.3s;
+}
+
+footer .social-links i:hover {
+    opacity: 0.7;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Social Icon Specific Colors */
+.facebook-icon {
+    color: #074075;
+}
+
+.facebook-icon:hover {
+    color: #01274b;
+}
+
+.twitter-icon {
+    color: #1DA1F2;
+}
+
+.twitter-icon:hover {
+    color: #0d95e8;
+}
+
+.insta-icon {
+    color: rgba(128, 0, 128, 0.733);
+}
+
+.insta-icon:hover {
+    color: rgb(200, 255, 0);
+}
+footer p {
+    margin: 0;
+}
+
+/* Yellow Border at the Bottom */
+body::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: #ffd700; /* Gold color */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Increase container width for mobile */
+    }
+
+    /* Align logo and nav items in the center */
+    nav .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .slides {
+        flex-direction: column;
+        align-items: center; /* Center-align the slide content */
+    }
+
+    .column {
+        margin-right: 0; /* Remove right margin on columns for better stacking */
+        margin-bottom: 20px; /* Add spacing between stacked columns */
+    }
+
+    .column:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjust font sizes for mobile */
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .slides {
+        width: 100%; /* Full width for mobile */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Center footer content */
+    footer .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Adjust footer layout on mobile */
+    footer .social-links a {
+        margin: 0 5px;
+    }
+}
+
+ 

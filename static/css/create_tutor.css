@@ -148,6 +148,24 @@ footer .container {
     align-items: center;
 }
 
+footer .social-links {
+    margin-bottom: 10px;
+}
+
+footer .social-links a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+footer .social-links i {
+    font-size: 24px;
+    transition: opacity 0.3s;
+}
+
+footer .social-links i:hover {
+    opacity: 0.7;
+}
+
 .facebook-icon{
     color: #074075;
 
@@ -171,6 +189,10 @@ color: #01274b;
 .insta-icon:hover{
    
     color:  rgb(200, 255, 0)
+}
+
+footer p {
+    margin: 0;
 }
 
 footer p {

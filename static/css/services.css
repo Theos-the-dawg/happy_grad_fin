@@ -101,12 +101,13 @@ main h1 {
 
 .service-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+/*     box-shadow: 0 10px 15px gold; */
+    box-shadow: 10px 10px 10px gold , 10px 10px 10px  #062d3d inset;
 }
 
 .service-item img {
     max-width: 100%;
-    border-radius: 5px;
+    border-radius: 50px;
     margin-bottom: 10px;
 }
 
@@ -115,9 +116,12 @@ main h1 {
     margin-bottom: 10px;
     font-size: 1.5rem;
 }
+.service-item:hover h2{
+    color:gold;
+}
 
 .service-item p {
-    color: #555;
+    color:#062d3d;
     margin: 5px 0;
 }
 
