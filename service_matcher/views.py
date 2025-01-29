@@ -54,7 +54,11 @@ def login_view(request):
     return render(request, 'login.html', {'form': form})
 
 def logout_view(request):
-    logout(request)
+    if request.user == None:
+      return redirect(login_view)
+    else:
+     logout(request.user)
+
     return redirect('home')   
     
 def create_Student(request):
