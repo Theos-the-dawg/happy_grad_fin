@@ -1,184 +1,237 @@
-/* login.css */
-
-/* Reset default margin and padding */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* Light gray background */
-    line-height: 1.6;
     margin: 0;
-    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
+    padding-bottom: 5px; /* Adjust padding to prevent overlap with the bottom border */
 }
 
-/* Navigation styles */
-.nav-links {
-    background-color: rgb(7, 7, 77); /* Dark background color */
-    overflow: hidden;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li {
-    float: left;
-}
-
-.nav-links li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.nav-links li a:hover {
-    background-color: #111; /* Darken background color on hover */
-}
-
-/* Container styles */
 .container {
-    width: 90%;
-    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
-    overflow: hidden;
+    padding: 0px;
 }
 
-/* Logo styles */
-.logo {
-    float: left;
-    padding: 15px 0;
+/* Navigation Bar */
+nav {
+    background-color: #062d3d;
+    color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
 }
 
-.logo a {
-    color: white;
-    font-size: 1.5rem;
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    
+}
+
+nav ul li {
+    margin-left: 0px;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #fff;
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
-/* Login container styles */
+nav ul li a:hover {
+    color: #ffd700; /* Gold color */
+}
+
+/* Header Section */
+header {
+    text-align: center;
+    padding: 50px 0;
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #062d3d;
+}
+
+header p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+header .btn {
+    background-color: #ffd700; /* Gold color */
+    color: #062d3d; /* Dark blue color */
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+header .btn:hover {
+    background-color: #e5c100; /* Darker gold color */
+}
+
+/* Login Container */
 .login-container {
     background-color: #fff;
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 8px;
+    border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 400px;
+    text-align: center;
 }
 
 .login-container h1 {
-    font-size: 2.5rem;
-    text-align: center;
+    color: #062d3d;
     margin-bottom: 20px;
 }
 
-.login-container form {
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.login-container .form-group {
+.form-group {
     margin-bottom: 15px;
+    text-align: left;
 }
 
-.login-container label {
+.form-group label {
     display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
 }
 
-.login-container input[type="email"],
-.login-container input[type="password"] {
+.form-group input {
     width: 100%;
     padding: 10px;
-    font-size: 1rem;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
-.login-container button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 1rem;
-    background-color: rgb(7, 7, 77);
-    color: white;
+button {
+    background-color: #062d3d;
+    color: #fff;
+    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
 }
 
-.login-container button:hover {
-    background-color: rgb(rgb(89, 0, 255), rgb(0, 102, 128), blue); /* Darken background color on hover */
+button:hover {
+    background-color: #05527c;
 }
 
-.login-container .messages {
+.messages {
     margin-top: 20px;
-    padding: 10px;
-    background-color: #f8d7da; /* Bootstrap's error alert color */
-    border: 1px solid #f5c6cb; /* Bootstrap's error alert border color */
-    border-radius: 4px;
+    color: #e74c3c; /* Red color */
 }
 
-.login-container .messages p {
-    margin: 0;
-    color: #721c24; /* Bootstrap's error alert text color */
-}
-
-.login-container p {
-    text-align: center;
-    margin-top: 15px;
-}
-
-.login-container p a {
-    color: #007bff; /* Bootstrap's primary link color */
-    text-decoration: none;
-}
-
-.login-container p a:hover {
-    text-decoration: underline;
-}
-
-/* Footer styles */
+/* Footer */
 footer {
-    background-color: rgb(7, 7, 77); /* Dark background color */
-    color: white;
+    background-color: #062d3d;
+    color: #fff;
     text-align: center;
     padding: 20px 0;
 }
 
-.social-icons {
-    list-style-type: none;
-    padding: 0;
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-.social-icons li {
+footer .social-links {
+    margin-bottom: 10px;
+}
+
+footer .social-links a {
+    margin: 0 10px;
     display: inline-block;
-    margin-right: 10px;
 }
 
-.social-icon {
+footer .social-links i {
+    font-size: 24px;
+    transition: opacity 0.3s;
+}
+
+footer .social-links i:hover {
+    opacity: 0.7;
+}
+
+footer p {
+    margin: 0;
+}
+
+body::after {
+    content: '';
     display: block;
-    width: 40px;
-    height: 40px;
-    background-size: cover;
+    width: 100%;
+    height: 5px;
+    background-color: #ffd700; /* Gold color */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    header p {
+        font-size: 1.2em;
+    }
+
+    header .btn {
+        padding: 8px 15px;
+    }
+
+    /* Align logo and nav items in the center */
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
 }
 
-/* Social media icons background images */
-.social-icon.facebook {
-    background-image: url('{% static "facebook.png" %}');
-}
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2em;
+    }
 
-.social-icon.twitter {
-    background-image: url('{% static "twitter.png" %}');
-}
+    header p {
+        font-size: 1em;
+    }
 
-.social-icon.instagram {
-    background-image: url('{% static "instagram.png" %}');
+    header .btn {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+
+    footer .container {
+        flex-direction: column;
+        align-items: center;
+    }
 }

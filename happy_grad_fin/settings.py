@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'service_matcher',
     'django_extensions',
-    'shell_plus',
+    #'shell_plus',
 ]
 AUTH_USER_MODEL = 'service_matcher.MyUser'
 

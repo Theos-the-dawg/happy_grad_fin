@@ -1,125 +1,249 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #faf0d1;
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
-    padding: 0;
+    background-image: url('/static/images/home_wallpaper.jpg'); /* Add your background image */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding-bottom: 5px;
 }
 
 .container {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
+    padding: 0px;
+    background: rgba(255, 255, 255, 0.9); /* White background with transparency */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.navbar {
-    background-color: #003366;
-    overflow: hidden;
-    color: white;
+/* Navigation */
+nav {
+    background-color: #062d3d;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
     padding: 10px 0;
 }
 
-.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+nav ul li {
+    margin-left: 20px;
 }
 
-.navbar ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-.navbar ul li a {
-    color: white;
+nav ul li a {
+    color: #fff;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s;
 }
 
-.navbar ul li a:hover {
-    text-decoration: underline;
+nav ul li a:hover {
+    color: #ffd700;
 }
 
+/* Form Section */
 .form-container {
     text-align: center;
-    padding: 20px;
-    background-color: #fff8e1;
-    border: 1px solid #003366;
-    border-radius: 10px;
+    padding: 50px 0;
 }
 
 .form-container h1 {
-    font-size: 36px;
+    font-size: 2.5em;
     margin-bottom: 20px;
-    color: #003366;
+    color: #062d3d;
 }
 
 .form-container p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #003366;
+    font-size: 1.2em;
+    color: #333;
 }
 
-.button-group {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.btn {
+.form-container .button-group a {
     display: inline-block;
-    padding: 15px 30px;
     margin: 10px;
-    background-color: #003366;
-    color: white;
-    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #062d3d;
+    color: #fff;
     border-radius: 5px;
-    font-size: 18px;
+    text-decoration: none;
+    transition: background-color 0.3s;
     font-weight: bold;
-    transition: background-color 0.3s ease;
 }
 
-.btn:hover {
-    background-color: #0055a5;
+.form-container .button-group a:hover {
+    background-color: #ffd700;
 }
 
-
-/* Footer styles */
+/* Footer */
 footer {
-    background-color:  rgb(7, 7, 77); /* Dark background color */
-    color: white;
+    background-color: #062d3d;
+    color:  #062d3d;
     text-align: center;
     padding: 20px 0;
 }
 
-.social-icons {
-    list-style-type: none;
+footer .social-icons {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer .social-icons li {
+    margin: 0 10px;
+}
+
+footer .social-icons a {
+    
+    font-size: 24px;
+    transition: opacity 0.3s;
+}
+
+footer .social-icons a:hover {
+    opacity: 0.7;
+}
+.facebook-icon{
+    color: #074075;
+
+}
+.facebook-icon:hover{
+color: #01274b;
+}
+
+/* Twitter Icon Specific Styling */
+.twitter-icon {
+    color: #1DA1F2;
+}
+
+.twitter-icon:hover {
+    color: #0d95e8;
+}
+
+.insta-icon{
+    color: rgba(128, 0, 128, 0.733)
+}
+.insta-icon:hover{
+   
+    color:  rgb(200, 255, 0)
+}
+.copy_right{
+    color: #fff;
+}
+
+body::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: #ffd700; /* Gold color */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+}
+
+/* Responsive Design */
+/* Ensure the logo stays aligned to the left */
+nav {
+    display: flex;
+    justify-content: space-between; /* Ensures space between the logo and nav items */
+    align-items: center;
+    padding: 10px 20px; /* Adjust for spacing */
+}
+
+nav .logo {
+    margin-right: auto; /* Ensures the logo stays on the left */
+}
+
+nav .logo img {
+    width: 85px;
+}
+
+/* Navigation items */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end; /* Align nav items to the right */
+    margin: 0;
     padding: 0;
 }
 
-.social-icons li {
-    display: inline-block;
-    margin-right: 10px;
+nav ul li {
+    margin-left: 20px;
 }
 
-.social-icon {
-    display: block;
-    width: 40px;
-    height: 40px;
-    background-size: cover;
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Stack the logo and nav items */
+        align-items: center;    /* Center them */
+    }
+
+    nav .logo {
+        margin-bottom: 10px; /* Add spacing between logo and nav items */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Adjust spacing between items */
+    }
 }
 
-/* Social media icons background images */
-.social-icon.facebook {
-    background-image: url('{% static "facebook.png" %}');
+
+    /* Center form-container contents on mobile */
+    .form-container h1 {
+        font-size: 2em; /* Adjust font size for better readability on mobile */
+    }
+
+    .form-container p {
+        font-size: 1.1em;
+    }
+
+    .form-container .button-group a {
+        padding: 8px 16px;
+        font-size: 1em;
+    }
+
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%; /* Full-width container for smaller screens */
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    nav ul li {
+        margin: 8px 0; /* Adjust spacing between nav items */
+    }
+
+    /* Footer adjustments */
+    footer .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .social-icons {
+        margin-top: 10px;
+    }
+
+    footer .social-icons a {
+        font-size: 20px; /* Adjust icon size for mobile */
+    }
 }
 
-.social-icon.twitter {
-    background-image: url('{% static "twitter.png" %}');
-}
-
-.social-icon.instagram {
-    background-image: url('{% static "instagram.png" %}');
-}
